@@ -1,0 +1,110 @@
+	body, html {
+  height: 100%;
+}
+	body{
+		  font-family: "GFS Didot", serif;
+  font-weight: 400;
+  font-style: normal;
+font-size: 15px;
+line-height: 1.2;
+
+  height: 100vh;
+  background: url('bg.jpg');
+  background-size: cover;
+	}
+	
+
+	.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+	
+
+	
+	
+	
+	.grid{
+		position: absolute;
+		left: 0;
+		right: 0;
+		opacity: 0.4;
+		        transform: translateY(-28px);
+		        display: none;
+	}
+	
+	.grid img{
+			width: 100%;
+		max-width: inherit;
+	
+	}
+
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* legende */
+
+
+.legende {
+    margin-top: 140px;
+    margin-left: 150px;
+
+    font-size: 13px;
+
+}
+
+.legende ul{
+	    column-count: 2;
+    column-gap: 40px;
+    width: 580px;
+    margin: 0;
+    padding: 0;
+    	break-inside: avoid;
+    	
+    	list-style: none;
+margin-left: 20px;
+
+}
+
+.legende li{
+	display: grid;
+	grid-template-columns: 5ch auto;
+}
+
+.legende .nummer{
+	
+	  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:200;
+  font-style: normal;
+
+}
+
+
+
+	@media (max-width: 1020px) {
+
+.legende {
+    margin-left: 5%;
+}
+
+.legende ul{
+	    column-count: 1;
+    width: auto;
+}
+}
