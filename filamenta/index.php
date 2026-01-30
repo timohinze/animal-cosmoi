@@ -34,13 +34,14 @@ section 1
 }
 
 .section-1__text-1 {
-    margin-left: 53vw;
+    margin-left: 750px;
 }
 
 .section-1__bild-2 {
     margin-top: -25px;
     width: 360px;
     margin-left: 63px;
+    z-index: 1;
 }
 
 .section-1__bild-3 {
@@ -77,7 +78,7 @@ section 1
 
 .section-2__bild-3 {
     width: 440px;
-    margin-left: 54vw;
+    margin-left: 700px;
     margin-bottom: 30px;
 }
 
@@ -96,7 +97,7 @@ section 1
 
 .section-2__bild-6 {
     width: 540px;
-    margin-left: 45vw;
+    margin-left: 500px;
     margin-bottom: 120px;
 }
 
@@ -115,7 +116,7 @@ section 1
 
 .section-3__bild-2 {
     width: 410px;
-    margin-left: 58vw;
+    margin-left: 700px;
     margin-bottom: 120px;
 }
 
@@ -147,19 +148,20 @@ section 1
 .section-4__bild-1 {
     width: 370px;
     margin-top: -200px;
-    margin-left: 63vw;
+    margin-left: 750px;
     margin-bottom: 116px;
 }
 
 .section-4__bild-2 {
     width: 450px;
     margin-left: 150px;
+    z-index: 1;
 }
 
 .section-4__bild-3 {
     width: 630px;
     margin-top: -30px;
-    margin-left: 41vw;
+    margin-left: 500px;
     margin-bottom: 40px;
 }
 
@@ -233,9 +235,6 @@ section 1
 }
 
 
-.legende ul{
-	    column-count: 1
-	    }
 
 
 
@@ -428,6 +427,14 @@ section 1
 	</div>
 
 </div>	
+
+
+<div class="legende">
+	<?php echo zeige_text($content[11]); ?>
+
+<p class="erschienen">	<?php echo zeige_text($content[12]); ?></p>
+
+</div>
 
 
 

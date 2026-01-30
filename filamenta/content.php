@@ -135,8 +135,8 @@ Schlachthaus
         "en" => "",
     ],
     
-    [ "de"=>"Die Publikation ›filamenta‹ ist im Kehrer Verlag 
-erschienen.",
+    [ "de"=>'Die Publikation <span style="color:yellow">›filamenta‹</span> ist im Kehrer Verlag 
+erschienen.',
 
 	"en"=>""]
 

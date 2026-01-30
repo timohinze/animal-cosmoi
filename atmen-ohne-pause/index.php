@@ -347,10 +347,6 @@ margin-left: 20px;
 }
 */
 
-.erschienen{
-	margin-top: 70px;
-	font-size: 16px;
-}
 
 
 
