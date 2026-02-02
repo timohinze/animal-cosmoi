@@ -134,72 +134,83 @@ body{
 <body>
 
 
+<?php zeige_top_bar(); ?>
+
+<div class="titel">
+<h1>K49814</h1>
+</div>
+
+
 <div class="page K49814">
 	<div class="grid">
  		<img src="05_Site_K49814_Gestaltung_final_01_26.jpg" alt="layout" width="" height="" > 
 	</div>
 
-<div class="text text-1">
+
+<div  class="section">
+
+<div class="text-element text-1">
 	<?php zeige_text($content[1]); ?>
 </div>
 
-<div class="text text-2">
+<div class="text-element text-2">
 	<?php zeige_text($content[2]); ?>
 </div>
 
-<div class="bild bild-1">
+<div class="bild-element bild-1">
 	<img src="img/1_Wildpferde-im Spiel-unversehrt_low.jpg"/>
 </div>	
 
-<div class="text text-3">
+<div class="text-element text-3">
 	<?php zeige_text($content[3]); ?>
 </div>
 
-<div class="text text-4">
+<div class="text-element text-4">
 	<?php zeige_text($content[4]); ?>
 </div>
 
-<div class="text text-5">
+<div class="text-element text-5">
 	<?php zeige_text($content[5]); ?>
 </div>
 
-<div class="text text-6">
+<div class="text-element text-6">
 	<?php zeige_text($content[6]); ?>
 </div>
 
 
-<div class="bild bild-2">
+<div class="bild-element bild-2">
 	<img src="img/2__MG_0750-Kopie-2_low.jpg"/>
 </div>	
 
 
-<div class="text text-7">
+<div class="text-element text-7">
 	<?php zeige_text($content[7]); ?>
 </div>
 
-<div class="text text-8">
+<div class="text-element text-8">
 	<?php zeige_text($content[8]); ?>
 </div>
 
-<div class="text text-9">
+<div class="text-element text-9">
 	<?php zeige_text($content[9]); ?>
 </div>
 
 
 
 
-<div class="text text-10">
+<div class="text-element text-10">
 	<?php zeige_text($content[10]); ?>
 </div>
 
-<div class="bild bild-3">
+<div class="bild-element bild-3">
 	<img src="img/3_MG_4679-Kopie_low.jpg"/>
 </div>	
 
-<div class="text text-11">
+<div class="text-element text-11">
 	<?php zeige_text($content[11]); ?>
 </div>
 
+</div> <!-- section -->
 
 
 <div class="legende">
@@ -208,3 +219,8 @@ body{
 
 
 </div>
+
+<?php zeige_footer(); ?>
+
+</body>
+</html>

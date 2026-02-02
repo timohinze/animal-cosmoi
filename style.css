@@ -11,6 +11,7 @@ line-height: 1.2;
   height: 100vh;
   background: url('bg.jpg');
   background-size: cover;
+  margin: 0;
 	}
 	
 
@@ -23,6 +24,44 @@ line-height: 1.2;
 	
 
 	
+	
+	
+	
+	/* header */
+
+.header{
+	opacity: 0.77;
+	background: #c8aa50;
+	padding-bottom:4px;
+	padding-top: 8px;
+}
+/* titel */
+.titel{
+	margin-left: 100px;
+	margin-top: 13px;
+}
+.titel svg{
+	height: 55px;
+	width: auto;
+}
+
+.pfeil svg{
+	width: 18px;
+	height: auto;
+	padding-left: 50px;
+}
+
+.titel h1{
+	  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:200;
+  font-style: normal;
+  font-size: 25px;
+}
+
+
+
+
 	
 	
 	.grid{
@@ -49,6 +88,23 @@ img{
 
 
 
+/* footer */
+
+.footer{
+	margin-top: 100px;
+	
+	padding: 15px;
+	padding-right: 40px;
+	background: rgb(0 0 0 / 15%);
+	font-family: "Inter", sans-serif;
+	text-align: right;
+	opacity: 0.8;
+}
+
+.footer a{
+	color: black;
+	text-decoration: none;
+}
 
 
 
@@ -78,7 +134,7 @@ img{
     	
     	list-style: none;
 margin-left: 20px;
-
+<div class="stapel">flex
 }
 
 .legende li{
@@ -107,12 +163,54 @@ margin-left: 20px;
 
 	@media (max-width: 1020px) {
 
+.pfeil svg {
+    padding-left: 2%;
+}
+
+
+.titel{
+	margin-left: 2%;
+	margin-bottom: 25px;
+}
+
 .legende {
     margin-left: 5%;
+    margin-right: 5%;
 }
 
 .legende ul{
 	    column-count: 1;
     width: auto;
 }
+
+
+.section{
+	margin-bottom: 75px!important;
+}
+
+.section .bild-element{
+margin: auto;
+	margin-left: 2%!important;
+	margin-right: 2%!important;
+	margin-bottom: 50px!important;
+	width: 96%!important;
+	
+	background: yellow!important;
+
+}
+
+.section .text-element{
+	width: 96%!important;
+	text-align: center!important;
+	margin: auto!important;
+	margin-bottom: 50px!important;
+	
+	background: blue;
+}
+
+.footer{
+	padding-right: 0;
+	text-align: left;
+}
+
 }
