@@ -1,39 +1,55 @@
 <?php
+$url = "http://localhost:8888/animal-cosmoi-page/";	
+$sprache ="de";
+if(isset($_GET["sprache"])){
+	$sprache = htmlspecialchars($_GET["sprache"]); 
+}
+
+
+	
 function zeige_header($titel = null){
+	global $sprache;
 	?>
 	<!DOCTYPE html>
-	<html>
+	<?php if($sprache=="en"){ echo '<html lang="en">'; } else{ echo '<html lang="de">'; }?>
 	<head>
 	<meta charset="UTF-8">
-	 <title><?php echo $titel; ?></title>
+	 <title>Animal Cosmoi – <?php echo $titel; ?></title>
+	 <meta name="description" content="">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<link rel="stylesheet" href="../style.css">
-
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 	
 <?php
 }
 
 
 function zeige_text($text){
+	global $sprache;
 	
+	if($sprache=="en"){
+	echo $text["en"];
+	
+	}else{
 	echo $text["de"];
+		
+	}
+
 	
 }
 
 
 
 function zeige_top_bar($farbe = null){
+	global $url;
+	global $sprache;
 	?>
 		<div class="header" style="background: <?php echo $farbe; ?>">
 		
 		
 	<div class="pfeil">
-		<a href="/">
+		<a href="<?php echo $url; if($sprache =="en"){echo "?sprache=en";} ?>">
 		<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -51,7 +67,29 @@ function zeige_top_bar($farbe = null){
 
 
 function zeige_footer(){
+	global $sprache;
+	global $url;
  	?>
-	<div class="footer"> 	 <a href="datenschutz">Datenschutz</a> | <a href="impressum">Impressum</a>  </div>
+	<div class="footer"> 	 <a href="<?php echo $url;?>/datenschutz/<?php if($sprache =="en"){echo "?sprache=en";}?>">Datenschutz</a> | <a href="<?php echo $url;?>/impressum/<?php if($sprache =="en"){echo "?sprache=en";}?>">Impressum</a>  </div>
  	<?php
 }
+
+
+
+
+
+// lang
+
+
+
+
+function sprachwechsler(){
+	global $sprache;
+	global $url;
+
+	echo '<a href="'.$url.'?sprache=de">D</a> | <a href="'.$url.'?sprache=en">E</a>';
+ 
+
+
+}
+

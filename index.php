@@ -1,14 +1,26 @@
+<?php include_once("functions.php"); ?>
 
 	<!DOCTYPE html>
-	<html>
+	<?php if($sprache=="en"){ echo '<html lang="en">'; } else{ echo '<html lang="de">'; }?>
 	<head>
 	<meta charset="UTF-8">
-	 <title></title>
+	 <title>Animal Cosmoi</title>
+	 <meta name="description" content="">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
+	
+	<link rel="stylesheet" href="style.css">
 <style>
 	
-	
+	/* inter-200 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  src: url('fonts/inter-v20-latin-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 		body, html {
   height: 100%;
 }
@@ -42,7 +54,36 @@ line-height: 1.2;
 	
 
 
+.sprachwechsler{
+	position: absolute;
+	top: 20px;
+	right: 10vw;
+	font-size: 30px;
+	font-family: "Inter", sans-serif;
+	font-weight: 200;
+	color: rgba(202, 172, 81, 0.6);
+	z-index: 99;
 
+}
+.sprachwechsler a{
+	color: rgba(202, 172, 81, 0.6);
+
+	text-decoration: none;
+}
+
+.sprachwechsler a:hover{
+		color: #C9AB50;
+}
+
+.startseite{
+	min-height: calc(100vh - 100px);
+}
+.footer {
+	color: #C9AB50;
+}
+.footer a{
+	color: #C9AB50;
+}
 
 .nav{
 	position: relative;
@@ -53,15 +94,51 @@ svg{
 	height: auto;
 }
 
-.nav-item{
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
+
+
+
+.nav-item .text{
+	  animation: fade 12s ease-in-out infinite;
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-item .text{
+    animation: none;
+    opacity: 1;
+  }
+}
+
+
+
+
+/*
 .nav-item .text{
 	opacity: 0.1;
 }
+*/
 
 .nav-item:hover .text{
-	opacity: 1;
+	    animation-play-state: paused;
+
+	opacity: 1!important;
 
 }
 
@@ -69,7 +146,13 @@ svg{
     position: absolute;
     width: 200px;
     left: 40vw;
-    top: 8vh;
+    top: 14vh;
+    
+}
+
+.nav-item--filamenta .text{
+	    animation-delay: 0s;
+
 }
 
 .nav-item--atmen {
@@ -78,6 +161,12 @@ svg{
     right: 3vw;
     bottom: -62vh;
     
+    animation-delay: 3s;
+    
+}
+
+.nav-item--atmen .text{
+	    animation-delay: 3s;
 }
 
 
@@ -86,8 +175,14 @@ svg{
     width: 350px;
     right: 17vw;
     bottom: -75vh;
+    
 }
-	
+
+
+.nav-item--fischschuppengarten{
+	   animation-delay: 6s; 
+
+}	
 	
 .nav-item--schattentheater {
     top: 33vh;
@@ -110,8 +205,14 @@ svg{
     position: absolute;
     width: 98px;
     right: 1vw;
+    
+    
 }
 
+.nav-item--k .text{
+	    animation-delay: 9s;
+
+}
 
 
 	@media (max-width: 900px) {
@@ -120,7 +221,7 @@ svg{
 	display: flex;
 	padding-left: 5%;
 	        flex-direction: column;
-	        padding-top: 50px;
+	        padding-top: 80px;
 
 }		
 		
@@ -134,6 +235,11 @@ svg{
 	top: auto;
 	margin-bottom: 50px;
 	
+}
+
+.nav-item:nth-child(odd){
+	        margin-right: 0;
+        margin-left: auto;
 }
 
 .nav-item .text{
@@ -157,15 +263,23 @@ max-width: 95%;
 <img src="Bildschirmfoto%202026-02-01%20um%2021.51.56.png" alt="Bildschirmfoto 2026-02-01 um 21.51" width="" height="" />
 </div>
 
+
+<div class="sprachwechsler">
+	<?php sprachwechsler(); ?>
+</div>	
+
 <div class="nav">
 
 <div class="nav-item nav-item--filamenta">
-<a href="filamenta/">
+<a href="filamenta/<?php if($sprache =="en"){echo "?sprache=en";}?>">
 	<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="644.9px" height="254.2px" viewBox="0 0 644.9 254.2" style="enable-background:new 0 0 644.9 254.2;" xml:space="preserve"
 	>
+ <title>filamenta</title>
+		
+		
 <style type="text/css">
 	.st0{fill:#C9AB50;}
 </style>
@@ -243,11 +357,14 @@ max-width: 95%;
 
 
 <div class="nav-item nav-item--atmen">
-<a href="atmen-ohne-pause/">
+<a href="atmen-ohne-pause/<?php if($sprache =="en"){echo "?sprache=en";}?>">
 	<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="829px" height="254.2px" viewBox="0 0 829 254.2" style="enable-background:new 0 0 829 254.2;" xml:space="preserve">
+
+ <title>Atmen ohne Pause</title>
+		 
 <style type="text/css">
 	.st0{fill:#C9AB50;}
 </style>
@@ -372,12 +489,16 @@ max-width: 95%;
 
 
 <div class="nav-item nav-item--fischschuppengarten">
-	<a href="fischschuppengarten/">
+	<a href="fischschuppengarten/<?php if($sprache =="en"){echo "?sprache=en";}?>">
 	<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="1258.7px" height="254.2px" viewBox="0 0 1258.7 254.2" style="enable-background:new 0 0 1258.7 254.2;"
 	 xml:space="preserve">
+
+ <title>Fischschuppengarten</title>
+	
+		 
 <style type="text/css">
 	.st0{fill:#C9AB50;}
 </style>
@@ -547,6 +668,9 @@ max-width: 95%;
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="634.7px" height="254.2px" viewBox="0 0 634.7 254.2" style="enable-background:new 0 0 634.7 254.2;" xml:space="preserve"
 	>
+ <title>Schattentheater</title>
+
+		
 <style type="text/css">
 	.st0{fill:#C9AB50;}
 </style>
@@ -663,12 +787,17 @@ max-width: 95%;
 
 
 <div class="nav-item nav-item--k">
-	<a href="K49814/">
+	<a href="K49814/<?php if($sprache =="en"){echo "?sprache=en";}?>">
 	<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="317.4px" height="254.2px" viewBox="0 0 317.4 254.2" style="enable-background:new 0 0 317.4 254.2;" xml:space="preserve"
 	>
+
+ <title>K49814</title>
+		
+	
+		
 <style type="text/css">
 	.st0{fill:#C9AB50;}
 </style>
@@ -713,6 +842,9 @@ max-width: 95%;
 
 
 </div>
+
+
+<?php zeige_footer(); ?>
 
 </body>
 </html>

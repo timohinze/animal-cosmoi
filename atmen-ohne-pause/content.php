@@ -34,7 +34,7 @@ $content[3] = array(
 );
 
 $content[4] = array(
-    "de" => "Zahlenhimmel?",
+    "de" => "Zahlenhimmel",
     "en" => "Sky of numbers",
 );
 
@@ -98,8 +98,8 @@ $content[9] = array(
 );
 
 $content[10] = array(
-    "de" => 'Die Publikation <span style="color:#c8aa50">›Atmen ohne Pause‹</span> ist im 
+    "de" => 'Die Publikation <a target="_blank" href="https://www.kehrerverlag.com/de/k49814-atmen-ohne-pause-978-3-86828-576-5"><span style="color:#c8aa50">›Atmen ohne Pause‹</span></a> ist im 
 Kehrer Verlag erschienen.',
-    "en" => 'The publication <span style="color:#c8aa50">›Breathing Without Pause‹</span> was
+    "en" => 'The publication <a target="_blank" href="https://www.kehrerverlag.com/de/k49814-atmen-ohne-pause-978-3-86828-576-5"><span style="color:#c8aa50">›Breathing Without Pause‹</span></a> was
 published by Kehrer Verlag.',
 );

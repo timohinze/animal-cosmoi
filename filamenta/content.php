@@ -156,9 +156,9 @@ I let it be",
     ],
 
     [
-        "de" => 'Die Publikation <span style="color:#c8aa50">›filamenta‹</span> ist im Kehrer Verlag 
+        "de" => 'Die Publikation <a href="https://www.kehrerverlag.com/de/k49814-filamenta-978-3-96900-181-3" target="_blank"> <span style="color:#c8aa50">›filamenta‹</span> </a> ist im Kehrer Verlag 
 erschienen.',
-        "en" => 'The publication <span style="color:#c8aa50">›filamenta‹</span> was published by Kehrer Verlag',
+        "en" => 'The publication <a href="https://www.kehrerverlag.com/de/k49814-filamenta-978-3-96900-181-3" target="_blank">  <span style="color:#c8aa50">›filamenta‹</span> </a> was published by Kehrer Verlag',
     ],
 
 ];

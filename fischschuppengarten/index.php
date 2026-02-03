@@ -174,7 +174,11 @@ img{
 
 <?php zeige_top_bar("#565C69"); ?>
 
+<h1 class="visually-hidden"><?php echo zeige_text($content[0]); ?></h1>
+
+
 <div class="titel">
+	<h1 title="Fischschuppengarten">
 		<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -336,6 +340,8 @@ img{
 </g>
 </svg>
 
+	</h1>
+
 </div>	
 
 <div class="page Fischschuppengarten">
@@ -478,6 +484,11 @@ img{
 
 
 
+
+
+</div>
+<div class="legende">
+	<?php echo zeige_text($content[5]); ?>
 
 
 </div>

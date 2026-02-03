@@ -142,9 +142,6 @@ body{
 
 
 <div class="page K49814">
-	<div class="grid">
- 		<img src="05_Site_K49814_Gestaltung_final_01_26.jpg" alt="layout" width="" height="" > 
-	</div>
 
 
 <div  class="section">

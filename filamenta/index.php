@@ -251,6 +251,8 @@ section 1
 	
 	
 <?php zeige_top_bar("#c8aa50"); ?>	
+
+<h1 class="visually-hidden"><?php echo zeige_text($content[0]); ?></h1>
 	
 <div class="titel">	
 	

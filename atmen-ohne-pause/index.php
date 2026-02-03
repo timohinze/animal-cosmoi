@@ -318,9 +318,7 @@ margin-left: 20px;
 
 
 	@media (max-width: 1020px) {
-body{
-	border-top: 1px solid yellow;
-}
+
 
 .stapel{
 		flex-direction: column;
@@ -507,6 +505,9 @@ section 7
 
 <?php zeige_top_bar(); ?>
 
+<h1 class="visually-hidden"><?php echo zeige_text($content[0]); ?></h1>
+
+
 <div class="titel">
 	<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -671,9 +672,13 @@ section 7
 </div>	
 
 <div class="section section-3">
-	<div class="bild-element"
+	<div class="bild-element section-3--image-1">
 	<img src="img/_MG_9649-Kopie_low.jpg" alt="_MG_9649-Kopie_low" width="" height="" >
-<img src="img/11-000-Schweineohrmarken-eines-Tages-in-einem-Schlachthof_low.jpg" alt="11-000-Schweineohrmarken-eines-Tages-in-einem-Schlachthof_low" width="" height="" ></div>
+	</div>
+	<div class="bild-element section-3--image-2">
+<img src="img/11-000-Schweineohrmarken-eines-Tages-in-einem-Schlachthof_low.jpg" alt="11-000-Schweineohrmarken-eines-Tages-in-einem-Schlachthof_low" width="" height="" >
+	</div>
+</div>
 </div>
 
 
