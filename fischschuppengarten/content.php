@@ -2,7 +2,7 @@
 $content = [
 
     [
-        "de" => "Fischschuppengarten",
+        "de" => "Der Fischschuppengarten",
         "en" => "Fish Scale Garden",
     ],
 
@@ -39,7 +39,7 @@ machte daraus den Film <a href="https://santogusant.no/en/movie/trillion" target
     ],
 
     [
-        "de" => "Der Garten ist allen Fischwesen und meiner verstorbenen 
+        "de" => "Der Fischschuppengarten ist allen Fischwesen und meiner verstorbenen 
 Schwester Lara gewidmet.
 ",
         "en" => "It is dedicated to all fish beings and to my late sister Lara.
@@ -56,7 +56,7 @@ Schwester Lara gewidmet.
   <li><span class="nummer">5</span> Trocknung der Schuppen auf meinem Dachboden</li>
   <li><span class="nummer">6–13</span> Fischschuppengarten auf einer norwegischen Insel</li>
   <li><span class="nummer">14</span> Filmstill aus ›Trillion‹, ©Sant&Usant, Louverture Films, 2025
-	Verwendung mit freundlicher Genehmigunl</li>
+	Verwendung mit freundlicher Genehmigung</li>
 </ul>
 ',
         "en" => '	<p>Captions</p>
@@ -73,3 +73,13 @@ Schwester Lara gewidmet.
     ],
 
 ];
+
+
+$content["meta"] = array(
+	"de" =>"Fischschuppengarten ist eine Land-Art-Installation aus Millionen von Fischschuppen als Meditation über den Ozean der Leerheit, verfilmt in Trillion von Victor Kossakovsky, Executive producer Joaquin Phoenix.
+",
+"en" => "Fish Scale Garden is a land art installation made from millions of fish scales as a meditation on the ocean of emptiness, filmed in “Trillion” by Victor Kossakovsky, executive producer Joaquin Phoenix.
+"
+	
+	
+);

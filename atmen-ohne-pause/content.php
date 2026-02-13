@@ -103,3 +103,10 @@ Kehrer Verlag erschienen.',
     "en" => 'The publication <a target="_blank" href="https://www.kehrerverlag.com/de/k49814-atmen-ohne-pause-978-3-86828-576-5"><span style="color:#c8aa50">›Breathing Without Pause‹</span></a> was
 published by Kehrer Verlag.',
 );
+
+
+$content["meta"] = array(
+	"de" => "Das Buch Atmen ohne Pause dokumentiert Nutztiere in Schlachthöfen, Zuchtbetrieben und Lebenshöfen. Das Atmen ist darin speziesübergreifend die erste Artikulation des Willens zum Leben.
+",
+"en" => "The book “Breathing Without Pause” documents farm animals in slaughterhouses, breeding farms, and animal sanctuaries. In it, breathing is the first articulation of the will to live across species."
+);

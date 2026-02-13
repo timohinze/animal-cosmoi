@@ -1,7 +1,9 @@
 <?php 
    include_once("../functions.php"); 
-   zeige_header("K49814");
    include_once("content.php");
+   zeige_header("K49814", $content["meta"]);
+   
+   $alt = "K49814";
 
 ?>
 
@@ -17,6 +19,7 @@
 	.text-1 {
 		margin-bottom: 20px;
     margin-left: 280px;
+        width: 500px;
 }
 
 .text-2 {
@@ -43,6 +46,7 @@
 
 .text-5{
 	margin-left: 390px;
+	margin-bottom: 35px;
 }
 
 .text-6 {
@@ -106,27 +110,25 @@
 
 
 
-	@media (max-width: 1020px) {
-body{
-	border-top: 1px solid yellow;
-}
+@media (max-width: 1020px) {
 
 
-.text{
-	margin-left: 5%;
-	width: 90%;
-}
-
-
-.bild {
-    width: 90%;
-    margin-left: 5%;
-    
-}
-
-.bild-2{
-	width: 50%;
-	margin-left: 25%;
+	.text{
+		margin-left: 5%;
+		width: 90%;
+	}
+	
+	
+	.bild {
+	    width: 90%;
+	    margin-left: 5%;
+	    
+	}
+	
+	.bild-2{
+		width: 50%;
+		margin-left: 25%;
+	}
 }
 </style>
 </head>
@@ -143,8 +145,7 @@ body{
 
 <div class="page K49814">
 
-
-<div  class="section">
+<div class="section">
 
 <div class="text-element text-1">
 	<?php zeige_text($content[1]); ?>
@@ -155,7 +156,7 @@ body{
 </div>
 
 <div class="bild-element bild-1">
-	<img src="img/1_Wildpferde-im Spiel-unversehrt_low.jpg"/>
+	<?php bild("img/1_Wildpferde-im Spiel-unversehrt_low.jpg", $alt); ?>
 </div>	
 
 <div class="text-element text-3">
@@ -174,11 +175,9 @@ body{
 	<?php zeige_text($content[6]); ?>
 </div>
 
-
 <div class="bild-element bild-2">
-	<img src="img/2__MG_0750-Kopie-2_low.jpg"/>
+	<?php bild("img/2__MG_0750-Kopie-2_low.jpg", $alt); ?>
 </div>	
-
 
 <div class="text-element text-7">
 	<?php zeige_text($content[7]); ?>
@@ -192,15 +191,12 @@ body{
 	<?php zeige_text($content[9]); ?>
 </div>
 
-
-
-
 <div class="text-element text-10">
 	<?php zeige_text($content[10]); ?>
 </div>
 
 <div class="bild-element bild-3">
-	<img src="img/3_MG_4679-Kopie_low.jpg"/>
+	<?php bild("img/3_MG_4679-Kopie_low.jpg", $alt); ?>
 </div>	
 
 <div class="text-element text-11">
@@ -209,11 +205,9 @@ body{
 
 </div> <!-- section -->
 
-
 <div class="legende">
 	<?php echo zeige_text($content[12]); ?>
 </div>
-
 
 </div>
 

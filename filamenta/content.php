@@ -162,3 +162,10 @@ erschienen.',
     ],
 
 ];
+
+$content["meta"] = array(
+	"de" =>"In poetischen Fotografien handelt das Buch Filamenta von den die Meere entleerenden Endosfilamenten der Fischernetze im Gegensatz zu den kosmischen und biologischen Fadenwerken, die das Leben ermöglichen.",
+	
+	"en" => "In poetic photographs, the book Filamenta deals with the endless filaments of fishing nets that empty the seas, in contrast to the cosmic and biological threadworks that make life possible."
+	
+);

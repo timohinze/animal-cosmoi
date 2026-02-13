@@ -48,3 +48,8 @@ the efficacious power of myth."
 
     
 ];
+
+$content["meta"] = array(
+	"de" => "Die neue Arbeit von K49814 wird ein performatives Schattentheater in einer Höhle, in der die durch Menschenhand ausgestorbenen Tiere wiederkehren.",
+"en" => "K49814’s new work will be a performative shadow theater in a cave where animals that went extinct through human activities return."
+);

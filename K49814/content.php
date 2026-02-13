@@ -12,7 +12,7 @@ $content = [
     ],
 
     [
-        "de" => "In der Nacht, wenn die Formen ununterscheidbar sind, ist da nur noch Jemand, der atmet. Er atmet, weil er will. Mit dem Atem artikuliert er sein Dasein. Deswegen ist der Atem individuell. Der Atem ist ein junger und ein alter Atem, er ist ein Artenatem, aber vor allem ist er ein je eigener Atem, der mit der Welt in Kontakt tritt.",
+        "de" => "In der Nacht, wenn die Formen ununterscheidbar sind, ist da nur noch Jemand, der atmet. Er atmet, weil er will. Mit dem Atem artikuliert er sein Dasein. Deswegen ist der Atem individuell. Der Atem ist ein junger und ein alter Atem, er ist ein Artenatem, aber vor allem ist er ein je eigener Atem, der mit der Welt  Kontakt aufnimmt.",
         "en" => "At night, when forms are indistinguishable, there is only someone who breathes. He breathes because he is will. In breath, he articulates his existence. That is why breath is individual. Breath is a young and an old breath, it is a species breath, but above all, it is a unique breath, one that enters into contact with the world.",
     ],
 
@@ -57,7 +57,7 @@ $content = [
     ],
 
     [
-        "de" => "Seid Ihr, außer dem Atem?",
+        "de" => "Seid Ihr, außer dem Atem? möchte ich die vielen anderen fragen.",
         "en" => "Are you, beyond breath? I want to ask the many others.",
     ],
 
@@ -77,3 +77,8 @@ $content = [
     ],
 
 ];
+
+$content["meta"] = array(
+	"de" => "K49814 möchte mit sensibler Schwarz-Weiss-Fotografie und vergänglicher Land-Art die arbiträren Grenzen zwischen den Spezies auflösen und die Gemeinsamkeiten der verschiedenen Lebensformen sichtbar machen.",
+"en" => "K49814 aims to dissolve the arbitrary boundaries between species and reveal the similarities between different life forms through sensitive black-and-white photography and ephemeral land art.#"
+);

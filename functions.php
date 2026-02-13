@@ -1,57 +1,131 @@
 <?php
-$url = "http://localhost:8888/animal-cosmoi-page/";	
-$sprache ="de";
-if(isset($_GET["sprache"])){
-	$sprache = htmlspecialchars($_GET["sprache"]); 
+/* =========================
+   KONFIGURATION
+========================= */
+
+define('ROOT', 'https://animalcosmoi.org/');
+
+
+/* =========================
+   SPRACHE ERMITTELN
+========================= */
+
+function get_sprache(): string
+{
+    $uri = $_SERVER['REQUEST_URI'];
+
+    if (preg_match('#^/(en)/#', $uri)) {
+        return 'en';
+    }
+
+    return 'de';
+}
+
+$sprache = get_sprache();
+
+
+
+function get_base_url(): string
+{
+    global $sprache;
+
+    return ROOT . $sprache . '/';
+}
+
+/* =========================
+   TEXT HELPER
+========================= */
+
+function zeige_text(array $text)
+{
+    global $sprache;
+
+
+    if ($sprache === 'en' && !empty($text['en'])) {
+        echo $text['en'];
+    }else{
+	    
+	    echo $text['de'] ?? '';
+	  }
 }
 
 
-	
-function zeige_header($titel = null){
-	global $sprache;
-	?>
-	<!DOCTYPE html>
-	<?php if($sprache=="en"){ echo '<html lang="en">'; } else{ echo '<html lang="de">'; }?>
-	<head>
-	<meta charset="UTF-8">
-	 <title>Animal Cosmoi – <?php echo $titel; ?></title>
-	 <meta name="description" content="">
+/* =========================
+   BILD HELPER
+========================= */
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="stylesheet" href="../style.css">
-	
-<?php
+function bild(string $path, string $alt = '')
+{
+    // Wenn kein führender Slash → relativer Pfad zur aktuellen Datei
+    if ($path[0] !== '/') {
+        $path = dirname($_SERVER['SCRIPT_NAME']) . '/' . $path;
+    }
+
+    $docRoot = $_SERVER['DOCUMENT_ROOT'];
+    $fullPath = $docRoot . $path;
+
+    if (!file_exists($fullPath)) {
+        echo "Bild nicht gefunden: " . $fullPath;
+        return;
+    }
+
+    [$width, $height] = getimagesize($fullPath);
+
+    echo '<img 
+            src="' . $path . '" 
+            width="' . $width . '" 
+            height="' . $height . '" 
+            loading="lazy"
+            alt="' . htmlspecialchars($alt) . '">';
 }
 
 
-function zeige_text($text){
-	global $sprache;
-	
-	if($sprache=="en"){
-	echo $text["en"];
-	
-	}else{
-	echo $text["de"];
-		
-	}
+/* =========================
+   HEADER FÜR UNTERSEITEN
+   INDEX SIEHE index.php
+========================= */
 
-	
+function zeige_header(string $titel = '', array $description = [])
+{
+    global $sprache;
+
+    ?>
+    <!DOCTYPE html>
+    <html lang="<?= $sprache ?>">
+    <head>
+        <meta charset="UTF-8">
+        <title>Animal Cosmoi – <?= htmlspecialchars($titel) ?></title>
+        <meta name="description" content="<?= htmlspecialchars(zeige_text($description)) ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <?php seo_tags(); ?>
+        
+        <link rel="preload" as="image" href="<?php ROOT; ?>/bg.jpg" fetchpriority="high">
+
+
+<link rel="preload" href="/style.css" as="style">
+<link rel="stylesheet" href="/style.css">
+
+<link rel="preload" href="/fonts/gfs-didot-v18-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <?php
 }
 
-
+/* =========================
+   Top Bar
+========================= */
 
 function zeige_top_bar($farbe = null){
-	global $url;
+	global $base;
 	global $sprache;
 	?>
 		<div class="header" style="background: <?php echo $farbe; ?>">
 		
 		
 	<div class="pfeil">
-		<a href="<?php echo $url; if($sprache =="en"){echo "?sprache=en";} ?>">
-		<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+		<a href="<?php echo get_base_url();?>" aria-label="To go home">
+<?php echo	'<?xml version="1.0" encoding="utf-8"?>';?>
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="10.5px" height="8.9px" viewBox="0 0 10.5 8.9" style="enable-background:new 0 0 10.5 8.9;" xml:space="preserve">
 <polygon points="2,3.8 0.7,4.3 1.8,4.9 8,8.3 8.5,7.5 2.5,4.3 9.6,1.5 10.1,0.6 "/>
@@ -66,30 +140,61 @@ function zeige_top_bar($farbe = null){
 }
 
 
-function zeige_footer(){
-	global $sprache;
-	global $url;
- 	?>
-	<div class="footer"> 	 <a href="<?php echo $url;?>/datenschutz/<?php if($sprache =="en"){echo "?sprache=en";}?>">Datenschutz</a> | <a href="<?php echo $url;?>/impressum/<?php if($sprache =="en"){echo "?sprache=en";}?>">Impressum</a>  </div>
- 	<?php
+/* =========================
+   FOOTER
+========================= */
+
+function zeige_footer()
+{
+    $base = get_base_url();
+    ?>
+    <div class="footer">
+        <a href="<?= $base ?>datenschutz/">Datenschutz</a> |
+        <a href="<?= $base ?>impressum/">Impressum</a>
+    </div>
+    </body>
+    </html>
+    <?php
 }
 
 
+/* =========================
+   SPRACHWECHSLER
+========================= */
+
+function sprachwechsler()
+{
+    global $sprache;
+
+    $currentPath = preg_replace('#^/(de|en)#', '', $_SERVER['REQUEST_URI']);
+    $currentPath = rtrim($currentPath, '/') . '/';
+
+    echo '<a href="' . ROOT . 'de' . $currentPath . '">DE</a> | ';
+    echo '<a href="' . ROOT . 'en' . $currentPath . '">EN</a>';
+}
 
 
+/* =========================
+   SEO
+========================= */
 
-// lang
+function seo_tags()
+{
+    global $sprache;
 
+/*
+    $title       = $options['title'][$sprache] ?? 'Animal Cosmoi';
+    $description = $options['description'][$sprache] ?? '';
+*/
 
+    $currentPath = preg_replace('#^/(de|en)#', '', $_SERVER['REQUEST_URI']);
+    $currentPath = rtrim($currentPath, '/') . '/';
 
+    $canonical = ROOT . $sprache . $currentPath;
 
-function sprachwechsler(){
-	global $sprache;
-	global $url;
-
-	echo '<a href="'.$url.'?sprache=de">D</a> | <a href="'.$url.'?sprache=en">E</a>';
- 
-
-
+    echo '<link rel="canonical" href="' . $canonical . '">' . PHP_EOL;
+    echo '<link rel="alternate" hreflang="de" href="' . ROOT . 'de' . $currentPath . '">' . PHP_EOL;
+    echo '<link rel="alternate" hreflang="en" href="' . ROOT . 'en' . $currentPath . '">' . PHP_EOL;
+    echo '<link rel="alternate" hreflang="x-default" href="' . ROOT . 'de' . $currentPath . '">' . PHP_EOL;
 }
 

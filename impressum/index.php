@@ -27,13 +27,13 @@
 	
 <?php zeige_top_bar("#c8aa50"); ?>	
 	
-<div class="titel">	
-	
+<div class="titel">
+<h1>	<?php	echo zeige_text($content[0]); ?>
+</h1>
 </div>
-	
 <div class="section">
 	<div class="text-element">
-	<?php	echo zeige_text($content[0]); ?>
+	<?php	echo zeige_text($content[1]); ?>
 	
 		
 	</div>

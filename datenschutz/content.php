@@ -1,9 +1,13 @@
 <?php
 $content = [
+	
+	[ "de" => 'Datenschutzerklärung',
+	
+		"en => ''"
+	],
 
     [
         "de" => '
-			<h2 class="wp-block-heading">Datenschutzerklärung</h2>
 
 
 

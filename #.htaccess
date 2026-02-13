@@ -1,0 +1,29 @@
+RewriteEngine On
+
+# Root → /de/
+RewriteRule ^$ /de/ [R=302,L]
+
+
+# Trailing Slash erzwingen
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,5}$
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+
+# Startseite mit Sprache → index.php
+RewriteRule ^(de|en)/?$ /index.php [L]
+
+# Unterseiten mit Sprache
+RewriteRule ^(de|en)/(.+)$ /$2 [L]
+
+
+# Cache Bilder
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+
+  ExpiresByType font/woff2 "access plus 6 months"
+</IfModule>
