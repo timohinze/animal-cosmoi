@@ -75,7 +75,7 @@ etwas sehr Altem, wie eine Erinnerung an das Wasser und meine Ahnen.",
     ],
 
     [
-        "de" => "In einer Materie, in der wir nicht mehr atmen vor langer Zeit zu atmen verlernten, leben die Fische und die anderen Wasserwesen ein verborgenes, 
+        "de" => "In einer Materie, in der wir nicht mehr atmen können, leben die Fische und die anderen Wasserwesen ein verborgenes, 
 alienhaftes Leben. Wenn sie, in den Endlosfilamenten der menschengewirkten Netze gefangen, an Land ersticken, hören unsere Ohren ihre Klagen 
 nicht.",
         "en" => "In an element in which we long ago forgot how to breathe, fish and other aquatic beings live a hidden, alien-like life. When they suffocate on land, trapped in the endless filaments of human-made nets, our ears cannot hear their lamentations.",

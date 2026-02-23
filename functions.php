@@ -146,11 +146,20 @@ function zeige_top_bar($farbe = null){
 
 function zeige_footer()
 {
+	global $sprache;
     $base = get_base_url();
     ?>
     <div class="footer">
-        <a href="<?= $base ?>datenschutz/">Datenschutz</a> |
-        <a href="<?= $base ?>impressum/">Impressum</a>
+	 	<?php  if ($sprache === 'en') { ?>
+	        <a href="<?= $base ?>datenschutz/">Privacy</a> |
+			<a href="<?= $base ?>impressum/">Imprint</a>
+ 	
+	 	<?php }else { ?>
+	        <a href="<?= $base ?>datenschutz/">Datenschutz</a> |
+			<a href="<?= $base ?>impressum/">Impressum</a>
+    
+	    <?php } ?>
+	    
     </div>
     </body>
     </html>
