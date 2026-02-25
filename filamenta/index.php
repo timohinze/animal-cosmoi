@@ -1,7 +1,7 @@
 <?php 
    include_once("../functions.php"); 
    include_once("content.php");
-   zeige_header("filamenta", $content["meta"]);
+   zeige_header("filamenta", $content["meta"],  );
    
    $alt ="filamenta";
 
@@ -32,7 +32,7 @@ section 1
 
 .section-1__bild-1 {
     width: 835px;
-    margin-left: 280px;
+    margin-left: 200px;
     margin-bottom: 35px;
 }
 
@@ -153,7 +153,7 @@ section 1
 .section-4__bild-1 {
     width: 370px;
     margin-top: -200px;
-    margin-left: 750px;
+    margin-left: 665px;
     margin-bottom: 116px;
 }
 
@@ -166,7 +166,7 @@ section 1
 .section-4__bild-3 {
     width: 630px;
     margin-top: -30px;
-    margin-left: 500px;
+    margin-left: 398px;
     margin-bottom: 40px;
 }
 
@@ -253,8 +253,8 @@ section 1
 
 <body>
 	
-	
 <?php zeige_top_bar("#c8aa50"); ?>	
+<main>	
 
 <h1 class="visually-hidden"><?php echo zeige_text($content[0]); ?></h1>
 	
@@ -433,6 +433,8 @@ section 1
 </div>
 
 </div>
+
+</main>
 
 <?php zeige_footer(); ?>
 

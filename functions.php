@@ -2,10 +2,13 @@
 /* =========================
    KONFIGURATION
 ========================= */
-
-define('ROOT', 'https://animalcosmoi.org/');
-
-
+define(
+    'ROOT',
+    (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http')
+    . '://'
+    . $_SERVER['HTTP_HOST']
+    . '/'
+);
 /* =========================
    SPRACHE ERMITTELN
 ========================= */
@@ -14,7 +17,7 @@ function get_sprache(): string
 {
     $uri = $_SERVER['REQUEST_URI'];
 
-    if (preg_match('#^/(en)/#', $uri)) {
+  if (preg_match('#^/en(/|$)#', $uri)) {
         return 'en';
     }
 
@@ -71,13 +74,31 @@ function bild(string $path, string $alt = '')
 
     [$width, $height] = getimagesize($fullPath);
 
+    // WebP prüfen
+    $webpPath = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $path);
+    $webpFull = $docRoot . $webpPath;
+    $hasWebp = file_exists($webpFull);
+
+     echo '<picture>';
+
+    // WebP Source
+    if ($hasWebp) {
+        echo '<source srcset="' . $webpPath . '" type="image/webp">';
+    }
+
+    // Fallback
     echo '<img 
             src="' . $path . '" 
             width="' . $width . '" 
             height="' . $height . '" 
-            loading="lazy"
-            alt="' . htmlspecialchars($alt) . '">';
+            loading="lazy"  
+            alt="' . htmlspecialchars($alt) . '" 
+            >';
+
+    echo '</picture>';
 }
+
+
 
 
 /* =========================
@@ -85,7 +106,7 @@ function bild(string $path, string $alt = '')
    INDEX SIEHE index.php
 ========================= */
 
-function zeige_header(string $titel = '', array $description = [])
+function zeige_header(string $titel = '', array $description = [], string $slug = '')
 {
     global $sprache;
 
@@ -93,23 +114,49 @@ function zeige_header(string $titel = '', array $description = [])
     <!DOCTYPE html>
     <html lang="<?= $sprache ?>">
     <head>
-        <meta charset="UTF-8">
-        <title>Animal Cosmoi – <?= htmlspecialchars($titel) ?></title>
-        <meta name="description" content="<?= htmlspecialchars(zeige_text($description)) ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-        <?php seo_tags(); ?>
-        
-        <link rel="preload" as="image" href="<?php ROOT; ?>/bg.jpg" fetchpriority="high">
-
-
-<link rel="preload" href="/style.css" as="style">
-<link rel="stylesheet" href="/style.css">
-
-<link rel="preload" href="/fonts/gfs-didot-v18-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <title>Animal Cosmoi – <?= htmlspecialchars($titel) ?></title>
 
     <?php
+    ob_start();
+    zeige_text($description);
+    $meta = ob_get_clean();
+    ?>
+    <meta name="description" content="<?= htmlspecialchars(trim($meta)) ?>">
+
+  <?php  structured_artwork(
+    htmlspecialchars($titel),
+    $description,
+    $slug
+
+); ?>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <?php seo_tags(); ?>
+
+    <link rel="preload" as="image" href="<?= ROOT ?>bg-neu.jpg" fetchpriority="high">
+    <link rel="icon" href="<?= ROOT ?>favicon.png" sizes="32x32">
+
+    <link rel="preload" href="<?= ROOT ?>style.css" as="style">
+    <link rel="stylesheet" href="<?= ROOT ?>style.css">
+
+    <link rel="preload"
+        href="<?= ROOT ?>fonts/gfs-didot-v18-latin-regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin>
+
+    <link rel="preload"
+        href="<?= ROOT ?>fonts/inter-v20-latin-regular.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin>
+
+    </head>
+    <?php 
 }
 
 /* =========================
@@ -146,26 +193,32 @@ function zeige_top_bar($farbe = null){
 
 function zeige_footer()
 {
-	global $sprache;
+    global $sprache;
     $base = get_base_url();
     ?>
-    <div class="footer">
-	 	<?php  if ($sprache === 'en') { ?>
-	        <a href="<?= $base ?>datenschutz/">Privacy</a> |
-			<a href="<?= $base ?>impressum/">Imprint</a>
- 	
-	 	<?php }else { ?>
-	        <a href="<?= $base ?>datenschutz/">Datenschutz</a> |
-			<a href="<?= $base ?>impressum/">Impressum</a>
-    
-	    <?php } ?>
-	    
-    </div>
+
+    <footer class="footer" role="contentinfo">
+
+        <nav class="footer-nav" aria-label="<?= $sprache === 'en' ? 'Legal navigation' : 'Rechtliche Navigation' ?>">
+
+            <?php if ($sprache === 'en') { ?>
+                <a href="<?= $base ?>datenschutz/" rel="nofollow">Privacy</a> |
+                <a href="<?= $base ?>impressum/" rel="nofollow">Imprint</a>
+            <?php } else { ?>
+                <a href="<?= $base ?>datenschutz/" rel="nofollow">Datenschutz</a> |
+                <a href="<?= $base ?>impressum/" rel="nofollow">Impressum</a>
+            <?php } ?>
+
+        </nav>
+
+
+    </footer>
+
     </body>
     </html>
+
     <?php
 }
-
 
 /* =========================
    SPRACHWECHSLER
@@ -176,8 +229,8 @@ function sprachwechsler()
     global $sprache;
 
     $currentPath = preg_replace('#^/(de|en)#', '', $_SERVER['REQUEST_URI']);
-    $currentPath = rtrim($currentPath, '/') . '/';
-
+    $currentPath = ltrim($currentPath, '/');
+    $currentPath = $currentPath ? rtrim($currentPath, '/') . '/' : '';
     echo '<a href="' . ROOT . 'de' . $currentPath . '">DE</a> | ';
     echo '<a href="' . ROOT . 'en' . $currentPath . '">EN</a>';
 }
@@ -187,14 +240,21 @@ function sprachwechsler()
    SEO
 ========================= */
 
+// JSON Helper
+
+function json_text(array $text): string
+{
+    ob_start();
+    zeige_text($text);
+    return trim(ob_get_clean());
+}
+
+
+// SEO Tags
+
 function seo_tags()
 {
     global $sprache;
-
-/*
-    $title       = $options['title'][$sprache] ?? 'Animal Cosmoi';
-    $description = $options['description'][$sprache] ?? '';
-*/
 
     $currentPath = preg_replace('#^/(de|en)#', '', $_SERVER['REQUEST_URI']);
     $currentPath = rtrim($currentPath, '/') . '/';
@@ -205,5 +265,53 @@ function seo_tags()
     echo '<link rel="alternate" hreflang="de" href="' . ROOT . 'de' . $currentPath . '">' . PHP_EOL;
     echo '<link rel="alternate" hreflang="en" href="' . ROOT . 'en' . $currentPath . '">' . PHP_EOL;
     echo '<link rel="alternate" hreflang="x-default" href="' . ROOT . 'de' . $currentPath . '">' . PHP_EOL;
+}
+
+
+function structured_person(array $description): void
+{
+    ?>
+    <script type="application/ld+json">
+    <?= json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "Person",
+        "name" => "K49814",
+        "jobTitle" => "Artist",
+        "url" => ROOT,
+        "description" => json_text($description)
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+    </script>
+    <?php
+}
+
+function structured_artwork(
+    string $title,
+    array $description,
+    string $slug
+): void {
+    global $sprache;
+
+    if(empty($slug)){
+     return;
+    }
+    ?>
+
+
+    <script type="application/ld+json">
+    <?= json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "VisualArtwork",
+        "name" => $title,
+        "creator" => [
+            "@type" => "Person",
+            "name" => "K49814"
+        ],
+        "url" => ROOT . $sprache . '/' . $slug . '/',
+        "inLanguage" => $sprache,
+        "artform" => "Photography",
+        "description" => json_text($description)
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+    </script>
+    <?php
 }
 

@@ -1,8 +1,9 @@
 <?php 
    include_once("../functions.php"); 
    include_once("content.php");
-   zeige_header("Schattentheater", $content["meta"]);
+   zeige_header("Schattentheater", $content["meta"], "schattentheater");
 
+    $alt = "Schattentheater";
 ?>
 
 <style>
@@ -167,7 +168,7 @@ img{
 <body>
 
 <?php zeige_top_bar("#C9AB50"); ?>
-
+<main>
 <h1 class="visually-hidden"><?php echo zeige_text($content[0]); ?></h1>
 
 
@@ -244,28 +245,23 @@ img{
 <div class="section section-1">
 	<div class="stapel">
 		
-	
 		<div class="bild-element section-1__bild-1">
-			<img src="img/286A5054 Kopie_low.jpg" />
+			<?php bild('img/286A5054-Kopie_low.jpg', $alt); ?>
 		</div>
 		
 		<div class="text-element section-1__text-1">
-				<?php zeige_text($content[1]); ?> 
+			<?php zeige_text($content[1]); ?> 
 		</div>
 	</div>	
-		
 </div>	
-
-
 
 
 <div class="section section-2">
 	<div class="stapel">
 			
 		<div class="bild-element section-2__bild-1">
-			<img src="img/286A5037 Kopie_bea_NI_low.jpg" />			
+			<?php bild('img/286A5037-Kopie_bea_NI_low.jpg', $alt); ?>
 		</div>
-		
 		
 		<div class="text-element section-2__text-1">
 			<?php zeige_text($content[2]); ?> 
@@ -275,28 +271,21 @@ img{
 </div>	
 
 
-
-
-
-
-
 <div class="section section-3">
 	<div class="stapel">
 			
 		<div class="bild-element section-3__bild-1">
-			<img src="img/286A5029 Kopie_bea_NI_low.jpg" />						
-
+			<?php bild('img/286A5029-Kopie_bea_NI_low.jpg', $alt); ?>
 		</div>
 		
 		<div class="bild-element section-3__bild-2">
-			<img src="img/286A5063 Kopie_low.jpg" />						
+			<?php bild('img/286A5063-Kopie_low.jpg', $alt); ?>
 		</div>
 		
 		<div class="bild-element section-3__bild-3">
-			<img src="img/286A5050 Kopie_bea_NI_low.jpg" />						
+			<?php bild('img/286A5050-Kopie_bea_NI_low.jpg', $alt); ?>
 		</div>		
 
-			
 	</div>
 </div>	
 
@@ -309,33 +298,35 @@ img{
 		</div>
 			
 		<div class="bild-element section-4__bild-1">
-				<img src="img/286A5088 Kopie_bea_NI_low.jpg" />						
+			<?php bild('img/286A5088-Kopie_bea_NI_low.jpg', $alt); ?>
 		</div>
+		
 		<div class="bild-element section-4__bild-2">
-				<img src="img/IMG_6041_bea_NI_low.jpg" />						
+			<?php bild('img/IMG_6041_bea_NI_low.jpg', $alt); ?>
 		</div>		
 			
 	</div>
 </div>	
 
 
-
 <div class="section section-5">
 	<div class="stapel">
 			
-
 		<div class="bild-element section-5__bild-1">
-				<img src="img/286A5065 Kopie_low.jpg" />						
+			<?php bild('img/286A5065-Kopie_low.jpg', $alt); ?>
 		</div>
+		
 		<div class="bild-element section-5__bild-2">
-				<img src="img/286A5058 Kopie_bea_NI_low.jpg" />						
+			<?php bild('img/286A5058-Kopie_bea_NI_low.jpg', $alt); ?>
 		</div>	
+		
 		<div class="bild-element section-5__bild-3">
-				<img src="img/286A5071 Kopie_bea_NI_low.jpg" />						
+			<?php bild('img/286A5071-Kopie_bea_NI_low.jpg', $alt); ?>
 		</div>	
 			
 	</div>
 </div>	
+
 
 <div class="section section-6">
 	<div class="stapel">
@@ -345,28 +336,20 @@ img{
 		</div>
 		
 		<div class="bild-element section-6__bild-1">
-					<img src="img/286A5106-2 Kopie_bea_NI_low.jpg" />						
-
+			<?php bild('img/286A5106-2-Kopie_bea_NI_low.jpg', $alt); ?>
 		</div>
+		
 		<div class="bild-element section-6__bild-2">
-					<img src="img/286A5133 Kopie 2_bea_NI_low.jpg" />						
-
+			<?php bild('img/286A5133-Kopie-2_bea_NI_low.jpg', $alt); ?>
 		</div>
 
-
-
-
-
-			
 	</div>
-</div>	
-
-
+</div>
 
 
 
 </div>
-
+</main>
 <?php zeige_footer(); ?>
 
 </body>

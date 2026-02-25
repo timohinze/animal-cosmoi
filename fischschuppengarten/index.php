@@ -1,7 +1,7 @@
 <?php 
    include_once("../functions.php"); 
    include_once("content.php");
-   zeige_header("Fischschuppengarten", $content["meta"]);
+   zeige_header("Fischschuppengarten", $content["meta"], "fischschuppengarten");
    $alt ="Fischschuppengarten";
 
 ?>
@@ -173,8 +173,11 @@ img{
 
 <body>
 
+
 <?php zeige_top_bar("#565C69"); ?>
 
+
+<main>
 <h1 class="visually-hidden"><?php echo zeige_text($content[0]); ?></h1>
 
 
@@ -334,7 +337,7 @@ img{
 		</div>				
 
 		<div class="bild-element section-4__bild-5">
-			<?php bild("img/M_286A8106.1 Kopie_low.jpg", $alt); ?>
+			<?php bild("img/M_286A8106.1-Kopie_low.jpg", $alt); ?>
 		</div>		
 			
 	</div>
@@ -377,6 +380,7 @@ img{
 
 </div>
 
+</main>
 <?php zeige_footer(); ?>
 
 </body>

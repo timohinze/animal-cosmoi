@@ -1,7 +1,7 @@
 <?php 
    include_once("../functions.php"); 
    include_once("content.php");
-   zeige_header("K49814", $content["meta"]);
+   zeige_header("K49814", $content["meta"], "k49814");
    
    $alt = "K49814";
 
@@ -138,6 +138,9 @@
 
 <?php zeige_top_bar(); ?>
 
+<main>
+
+
 <div class="titel">
 <h1>K49814</h1>
 </div>
@@ -156,7 +159,7 @@
 </div>
 
 <div class="bild-element bild-1">
-	<?php bild("img/1_Wildpferde-im Spiel-unversehrt_low.jpg", $alt); ?>
+	<?php bild("img/1_Wildpferde-im-Spiel-unversehrt_low.jpg", $alt); ?>
 </div>	
 
 <div class="text-element text-3">
@@ -210,7 +213,7 @@
 </div>
 
 </div>
-
+</main>
 <?php zeige_footer(); ?>
 
 </body>

@@ -1,7 +1,7 @@
 <?php 
    include_once("../functions.php"); 
    include_once("content.php");
-   zeige_header("Atmen ohne Pause", $content["meta"]);
+   zeige_header("Atmen ohne Pause", $content["meta"], "atmen-ohne-pause");
    
    $alt = "Atmen ohne Pause"
 
@@ -188,7 +188,7 @@ img {
 
 .section-6--image-1 {
   width: 525px;
-  margin: -303px 0 0 580px;
+  margin: -303px 0 0 535px;
 }
 
 .section-6--image-2 {
@@ -291,7 +291,9 @@ img {
 
 <body>
 
+
 <?php zeige_top_bar(); ?>
+<main>
 
 <h1 class="visually-hidden"><?php echo zeige_text($content[0]); ?></h1>
 
@@ -485,8 +487,10 @@ img {
 
 
 </div>
+</main>
 
 <?php zeige_footer(); ?>
+
 
 </body>
 </html>

@@ -16,27 +16,6 @@
 	src: url('fonts/inter-v20-latin-200.woff2') format('woff2');
 }
 
-/* inter-200italic - latin */
-/*
-@font-face {
-	font-display: swap;
-	font-family: 'Inter';
-	font-style: italic;
-	font-weight: 200;
-	src: url('fonts/inter-v20-latin-200italic.woff2') format('woff2');
-}
-*/
-
-/* inter-regular - latin */
-/*
-@font-face {
-	font-display: swap;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 400;
-	src: url('fonts/inter-v20-latin-regular.woff2') format('woff2');
-}
-*/
 
 
 body,
@@ -52,8 +31,14 @@ body {
 	line-height: 1.2;
 
 	min-height: 100vh;
-	background-image: url('/bg.jpg');
-	background-size: cover;
+	/* background-image: url('/bg.jpg');
+	background-size: cover; */
+
+
+  background: url('bg-neu.jpg') repeat-y center top;
+  background-size: 100% auto;
+
+
 	margin: 0;
 }
 
@@ -70,12 +55,12 @@ body::before {
 }
 
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
 	body {
-		background: url('bg-high.jpg');
+		background: url('/bg-high.jpg');
 
 	}
-}
+} */
 
 a {
 	text-decoration: none;
@@ -247,7 +232,7 @@ img {
 
 
 	.section {
-		margin-bottom: 50px !important;
+		/* margin-bottom: 50px !important; */
 	}
 
 	.section .bild-element {

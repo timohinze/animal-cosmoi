@@ -1,39 +1,53 @@
 <?php include_once("functions.php"); ?>
 
-	<!DOCTYPE html>
-	<?php if($sprache=="en"){ echo '<html lang="en">'; } else{ echo '<html lang="de">'; }?>
-	<head>
-	<meta charset="UTF-8">
-	 <title>Animal Cosmoi</title>
-	
-	<?php if($sprache=="en") { ?>
-	 <meta name="description" content="K49814 aims to dissolve the arbitrary boundaries between species and reveal the similarities between different life forms through sensitive black-and-white photography and ephemeral land art.">
-	
+<!DOCTYPE html>
+<html lang="<?= $sprache ?>">
+<head>
 
-<?php }else{ ?>
-	 <meta name="description" content="K49814 möchte mit sensibler Schwarz-Weiss-Fotografie und vergänglicher Land-Art die arbiträren Grenzen zwischen den Spezies auflösen und die Gemeinsamkeiten der verschiedenen Lebensformen sichtbar machen.">
-	 
-<?php } ?>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	 
-	 
-	 <?php seo_tags(); ?>
-	
-	
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="preload" as="image" href="/startseite.jpg" fetchpriority="high">
+<title>Animal Cosmoi – K49814</title>
 
-		
-	<link rel="preload" href="/style.css" as="style">
-	<link rel="stylesheet" href="/style.css">
-	
-	<link rel="preload" href="/fonts/gfs-didot-v18-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<?php
+$description = [
+    'de' => 'K49814 möchte mit sensibler Schwarz-Weiss-Fotografie und vergänglicher Land-Art die arbiträren Grenzen zwischen den Spezies auflösen und die Gemeinsamkeiten der verschiedenen Lebensformen sichtbar machen.',
+    'en' => 'K49814 aims to dissolve the arbitrary boundaries between species and reveal the similarities between different life forms through sensitive black-and-white photography and ephemeral land art.'
+];
+
+ob_start();
+zeige_text($description);
+$meta = ob_get_clean();
+?>
+<meta name="description" content="<?= htmlspecialchars(trim($meta)) ?>">
+
+<?php seo_tags(); ?>
+
+<?php structured_person([
+    'de' => 'K49814 möchte mit sensibler Schwarz-Weiss-Fotografie und vergänglicher Land-Art die arbiträren Grenzen zwischen den Spezies auflösen und die Gemeinsamkeiten der verschiedenen Lebensformen sichtbar machen',
+    'en' => 'K49814 aims to dissolve the arbitrary boundaries between species and reveal the similarities between different life forms through sensitive black-and-white photography and ephemeral land art.'
+]); ?>
+
+
+<link rel="preload" as="image" href="<?= ROOT ?>startseite.jpg" fetchpriority="high">
+<link rel="icon" href="<?= ROOT ?>favicon.png" sizes="32x32">
+
+<link rel="preload" href="<?= ROOT ?>style.css" as="style">
+<link rel="stylesheet" href="<?= ROOT ?>style.css">
+
+<link rel="preload"
+      href="<?= ROOT ?>fonts/gfs-didot-v18-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin>
+
+<link rel="preload"
+      href="<?= ROOT ?>fonts/inter-v20-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin>
 
 <style>
-
 /*
 Hier nur Styles für Startseite
 Rest siehe style.css 
@@ -314,18 +328,18 @@ svg {
 
 <body>
 
-<div class="startseite">
+<main class="startseite">
 
 
 
-<div class="sprachwechsler">
+<nav class="sprachwechsler" aria-label="Language switcher">
 	<?php sprachwechsler(); ?>
-</div>	
+</nav>	
 
-<div class="nav">
+<nav class="nav" aria-label="<?= $sprache === 'en' ? 'Projects' : 'Projekte' ?>">
 
 <div class="nav-item nav-item--filamenta">
-<a href="filamenta/">
+<a href="<?= get_base_url(); ?>filamenta/" aria-label="filamenta">
 <?php echo	'<?xml version="1.0" encoding="utf-8"?>';?>
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="644.9px" height="254.2px" viewBox="0 0 644.9 254.2" style="enable-background:new 0 0 644.9 254.2;" xml:space="preserve"
@@ -413,7 +427,7 @@ svg {
 
 
 <div class="nav-item nav-item--atmen">
-<a href="atmen-ohne-pause/">
+<a href="<?= get_base_url(); ?>atmen-ohne-pause/"  aria-label="Atmen ohne Pause">
 
  <title>Atmen ohne Pause</title>
 
@@ -590,7 +604,7 @@ svg {
 
 
 <div class="nav-item nav-item--fischschuppengarten">
-	<a href="fischschuppengarten/">
+	<a href="<?= get_base_url(); ?>fischschuppengarten/" aria-label="Fischschuppengarten">
 
 <?php if($sprache =="de"){ ?>
 <!-- de -->
@@ -910,7 +924,7 @@ if($sprache =="en"){ ?>
 
 
 <div class="nav-item nav-item--schattentheater">
-<a href="schattentheater/">
+<a href="<?= get_base_url(); ?>schattentheater/" aria-label="Schattentheater">
 
 
 <?php if($sprache =="de"){ ?>
@@ -1159,7 +1173,7 @@ if($sprache =="en"){ ?>
 
 
 <div class="nav-item nav-item--k">
-	<a href="K49814/">
+	<a href="<?= get_base_url(); ?>K49814/" aria-label="About K49814">
 <?php echo	'<?xml version="1.0" encoding="utf-8"?>';?>
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="317.4px" height="254.2px" viewBox="0 0 317.4 254.2" style="enable-background:new 0 0 317.4 254.2;" xml:space="preserve"
@@ -1212,10 +1226,22 @@ if($sprache =="en"){ ?>
 
 
 
-</div>  <!-- nav -->
+</nav>  <!-- nav -->
 
 
-</div>
+<h1 class="visually-hidden">
+    Animal Cosmoi – K49814	
+</h1>
+
+<p class="visually-hidden">
+    <?= $sprache === 'en'
+        ? 'K49814 aims to dissolve the arbitrary boundaries between species and reveal the similarities between different life forms through sensitive black-and-white photography and ephemeral land art.'
+        : 'K49814 möchte mit sensibler Schwarz-Weiss-Fotografie und vergänglicher Land-Art die arbiträren Grenzen zwischen den Spezies auflösen und die Gemeinsamkeiten der verschiedenen Lebensformen sichtbar machen.' ?>
+</p>
+
+
+
+</main>
 
 
 <?php zeige_footer(); ?>

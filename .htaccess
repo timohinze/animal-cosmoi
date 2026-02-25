@@ -27,3 +27,5 @@ RewriteRule ^(de|en)/(.+)$ /$2 [L]
 
   ExpiresByType font/woff2 "access plus 6 months"
 </IfModule>
+
+
